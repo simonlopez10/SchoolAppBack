@@ -4,7 +4,7 @@ const createDb = async (req, res, next) => {
 
     try {
         const result = await pool.query(
-            `DROP TABLE IF EXISTS grupos, materias, grupos_materias, estudiantes, notas, estudiantes_notas, usuarios
+            `DROP TABLE IF EXISTS grupos, materias, grupos_materias, estudiantes, notas, estudiantes_notas, usuarios ;
             CREATE TABLE grupos (
                 grupo_id SERIAL PRIMARY KEY,
                 nombre_grupo VARCHAR(15) NOT NULL,
@@ -45,7 +45,7 @@ const createDb = async (req, res, next) => {
             CREATE TABLE estudiantes_notas (
                 estudiante_id INT REFERENCES estudiantes (estudiante_id),
                 nota_id INT REFERENCES notas (nota_id),
-                grupo_id INT REFERENCES grupos (grupo_id)
+                grupo_id INT REFERENCES grupos (grupo_id),
                 valor_nota NUMERIC,
                 PRIMARY KEY (nota_id, estudiante_id)
             );
@@ -57,9 +57,10 @@ const createDb = async (req, res, next) => {
                 fecha_creacion DATE DEFAULT CURRENT_DATE,
                 nombre_usuario VARCHAR(255),
                 apellido_usuario VARCHAR(255)
-            )`
+            )
+            `
         );
-    
+
         return res.json('OK')
 
     } catch (error) {
