@@ -28,7 +28,7 @@ app.use(cookieParser());
 // Pasaporte
 app.use(passport.initialize())
 // Cors: Comunicar servidores de forma simple. el back contrsuido con express y el back de react
-app.use(cors({origin: CLIENT_URL, credentials: true}));
+app.use(cors({origin: '*', credentials: true}));
 
 
 // Servidor llamando rutas
