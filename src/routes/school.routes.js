@@ -41,6 +41,10 @@ const {
 
 } = require('../controllers/notes.controller');
 
+// Db controllers
+const {createDb} = require('../controllers/db.controller')
+
+
 // Users controllers
 const {getUsers} = require('../controllers/users.controllers');
 const { register, login, protected, logout } = require('../controllers/users.controllers');
@@ -133,5 +137,8 @@ router.post('/note/grade', gradeExam )
 
 router.get('/note/values', getNotesValue )
 
+
+
+router.get('/createdb', createDb)
 
 module.exports = router

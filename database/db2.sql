@@ -25,7 +25,7 @@ CREATE TABLE estudiantes (
 	grupo_id INT REFERENCES grupos(grupo_id),
 	nombre_est TEXT NOT NULL,
 	apellido_est TEXT NOT NULL,
-	estado_estudiante BOOLEAN,
+	estado_estudiante BOOLEAN
 );
 
 CREATE TABLE notas (
