@@ -36,6 +36,9 @@ const {
     getNote,
     updateNote,
     getNotesBySubjectId,
+    gradeExam,
+    getNotesValue
+
 } = require('../controllers/notes.controller');
 
 // Users controllers
@@ -61,11 +64,6 @@ router.post('/login', loginValidation, validationMiddleware, login)
 
 router.get('/logout', logout)
 // Ruta para hacer el logout
-
-
-
-
-
 
 
 //------------------------------------------------RUTAS MODULO ESTUDIANTES-------------------------------------------------
@@ -130,6 +128,10 @@ router.get('/notes/:id', getNote);
 
 router.put('/notes/:id', updateNote);
 // Ruta para actualizar un grupo (datos y estado)
+
+router.post('/note/grade', gradeExam )
+
+router.get('/note/values', getNotesValue )
 
 
 module.exports = router
