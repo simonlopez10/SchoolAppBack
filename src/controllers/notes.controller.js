@@ -156,13 +156,16 @@ const getNotesValue = async (req, res, next) => {
                 SELECT 
                     estudiantes_notas.*,
                     notas.*,
-                    estudiantes.*
+                    estudiantes.*,
+                    materias.*,
                 FROM 
                     estudiantes_notas
                 LEFT JOIN notas
                     ON notas.nota_id = estudiantes_notas.nota_id
                 LEFT JOIN estudiantes 
                     ON estudiantes.estudiante_id = estudiantes_notas.estudiante_id
+                LEFT JOIN materias
+                    ON materias.materia_id = notas.materia_id
                 `);
         if (result.rows.length === 0) {
             return res.status(404).json({
