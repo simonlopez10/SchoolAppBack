@@ -157,7 +157,7 @@ const getNotesValue = async (req, res, next) => {
                     estudiantes_notas.*,
                     notas.*,
                     estudiantes.*,
-                    materias.*,
+                    materias.*
                 FROM 
                     estudiantes_notas
                 LEFT JOIN notas
